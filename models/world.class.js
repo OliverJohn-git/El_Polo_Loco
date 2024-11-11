@@ -8,6 +8,9 @@ class World {
     clouds = [
         new Cloud()
     ]
+    backgroundObjects = [
+        new BackgroundObject('img/5_background/layers/3_third_layer/1.png', 0, 100)
+    ]
     canvas;
     ctx;
 
@@ -21,15 +24,10 @@ class World {
         
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height); //clears canvas
 
-        this.ctx.drawImage(this.character.img, this.character.x, this.character.y, this.character.height, this.character.width );
-
-        this.enemies.array.forEach(enemy => {
-            this.ctx.drawImage(enemy.img, enemy.x, enemy.y, enemy.height, enemy.width );
-        });
-
-        this.clouds.array.forEach(cloud => {
-            this.ctx.drawImage(cloud.img, cloud.x, cloud.y, cloud.height, cloud.width );
-        });
+        this.addToMap(this.character)
+        this.addObjectsToMap(this.clouds);
+        this.addObjectsToMap(this.enemies);
+        this.addObjectsToMap(this.backgroundObjects);
 
         //repeating draw as much as possible for users GPU
         let self = this;
@@ -37,4 +35,14 @@ class World {
             self.draw()
         });
     };
+
+    addObjectsToMap(objects){
+        objects.forEach((o) =>{
+            this.addToMap(o);
+        });
+    }
+
+    addToMap(mo) {
+        this.ctx.drawImage(mo.img, mo.x, mo.y, mo.height, mo.width );
+    }
 }
