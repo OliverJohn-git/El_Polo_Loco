@@ -6,7 +6,12 @@ class World {
             new Chicken(),
     ];
 
-    draw(){
+    constructor(canvas){
+        this.ctx = canvas.getContext('2d');
+        this.draw();
+    };
 
+    draw(){
+        this.ctx.drawImage(this.character.img, this.character.x, this.character.y,this.character.height, this.character.width );
     };
 }
