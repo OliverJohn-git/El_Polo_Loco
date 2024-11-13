@@ -30,7 +30,7 @@ class Character extends MovableObject{
                 this.x -= this.speed;
                 this.otherDirection = true;
             }
-            this.world.camera_x = -this.x;
+            this.world.camera_x = -this.x + 150;
 
         }, 1000/60);
 
