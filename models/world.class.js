@@ -14,14 +14,14 @@ class World {
         this.draw();
         this.setWorld();
     };
-
+    
     setWorld(){
         this.character.world = this
     }
 
     draw(){
         
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height); //clears canvas
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         this.ctx.translate(this.camera_x, 0);
 
@@ -33,8 +33,6 @@ class World {
 
         this.ctx.translate(-this.camera_x, 0);
         
-
-        //repeating draw as much as possible for users GPU
         let self = this;
         requestAnimationFrame(function() {
             self.draw()
