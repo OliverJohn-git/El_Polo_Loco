@@ -1,7 +1,7 @@
 class Chicken extends MovableObject{
     y= 530;
-    height= 100;
-    width= 100;
+    height= 60;
+    width= 120;
     path;
 
     IMAGES_WALKING = [
