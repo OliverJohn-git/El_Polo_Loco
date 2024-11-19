@@ -9,6 +9,7 @@ class World {
     coinBar = new CoinBar();
     bottleBar = new BottleBar();
     world;
+    gameOver
 
     constructor(canvas, keyboard){
         this.ctx = canvas.getContext('2d');

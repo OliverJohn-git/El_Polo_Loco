@@ -6,6 +6,7 @@ class DrawableObject{
     y = 240;
     height = 220;
     width = 400;
+    gameOver = null;
 
     offset = {
         top:    this.top,

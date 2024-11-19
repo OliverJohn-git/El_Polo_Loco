@@ -86,7 +86,11 @@ class Character extends MovableObject{
         this.animate();
     }   
 
-    animate(){
+    hurtTimeout = null;
+    gameOver = null;
+    deadPlayed = false;
+
+    animate(hurtTimeout, deadPlayed){
         setInterval(() => {
             this.walking_sound.pause();
             if(this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x){
@@ -111,17 +115,30 @@ class Character extends MovableObject{
 
         setInterval(() => {
             if (this.isDead()) {
-                this.playAnimation(this.IMAGES_DEAD);
-            }else if (this.isHurt()) {
-                this.playAnimation(this.IMAGES_HURT);
-            }else if (this.isAboveGround()) {
+                if (!deadPlayed) {
+                    this.playAnimation(this.IMAGES_DEAD);
+                    deadPlayed = true;
+        
+                    setTimeout(() => {
+                        gameOver = new GameOver();
+                        this.pauseGame();
+                    }, 1000);
+                }
+            } else if (this.isHurt()) {
+                if (!hurtTimeout) {
+                    this.playAnimation(this.IMAGES_HURT);
+                    hurtTimeout = setTimeout(() => {
+                        hurtTimeout = null;
+                    }, 3000);
+                }
+            } else if (this.isAboveGround()) {
                 this.playAnimation(this.IMAGES_JUMPING);
-            } else{
-                if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT ){
-                this.playAnimation(this.IMAGES_WALKING);
+            } else {
+                if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+                    this.playAnimation(this.IMAGES_WALKING);
                 }
             }
-        }, 50)
+        }, 50);
     }
 
     
