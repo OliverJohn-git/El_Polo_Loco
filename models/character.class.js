@@ -3,6 +3,13 @@ class Character extends MovableObject{
     y = 0
     path;
 
+    offset = {
+        top:    190,
+        bottom: -160,
+        left:   50,
+        right:  235,
+    }
+
     IMAGES_IDLE = [
         'img/2_character_pepe/1_idle/idle/I-1.png',
         'img/2_character_pepe/1_idle/idle/I-2.png',

@@ -7,6 +7,13 @@ class DrawableObject{
     height = 220;
     width = 400;
 
+    offset = {
+        top:    this.top,
+        bottom: this.bottom,
+        left:   this.left,
+        right:  this.right,
+    }
+
     loadImage(path){
         this.img = new Image();
         this.img.src = path;
@@ -24,15 +31,20 @@ class DrawableObject{
         });
     };
 
-    drawFrame(ctx){
-        if (this instanceof Character || this instanceof Chicken || this instanceof Endboss ) {
-            ctx.beginPath();
-            ctx.lineWidth = '5';
-            ctx.strokeStyle = 'blue';
-            ctx.rect(this.x, this.y, this.height, this.width)
-            ctx.stroke();
+    drawFrame(ctx) {
+        if (this instanceof Chicken || this instanceof Character) { //this instanceof Coin || this instanceof SmallChicken || 
+          const xPos = this.x + this.offset.left;
+          const yPos = this.y + this.offset.top;
+          const width = this.width - this.offset.left - this.offset.right;
+          const height = this.height - this.offset.top - this.offset.bottom;
+    
+          ctx.beginPath();
+          ctx.lineWidth = '5';
+          ctx.strokeStyle = 'red';
+          ctx.rect(xPos, yPos, width, height);
+          ctx.stroke();
         }
-    }
+      }
 
 
 
