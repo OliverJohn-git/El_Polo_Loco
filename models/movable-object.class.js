@@ -50,7 +50,6 @@ class MovableObject extends DrawableObject {
 
     hit(){
         this.energy -=5; 
-        console.log('hit')
         if (this.energy < 0) {
             this.energy = 0;
         } else{
@@ -66,5 +65,13 @@ class MovableObject extends DrawableObject {
 
     isDead(){
         return this.energy ==0;
+    }
+
+    deadChicken(character, chicken) {
+        if (character.isColliding(chicken)) {
+            chicken.loadImage(chicken.IMAGES_DEAD[0]);
+            chicken.speed = 0;
+            chicken.y += 15;
+        }
     }
 }

@@ -35,7 +35,9 @@ class Chicken extends MovableObject{
     animate(){
         setInterval(() => {
             this.moveLeft();
-
+            world.level.lvl1.forEach((chicken) => {
+                character.deadChicken(character, chicken);
+            });
         }, 1000/60)
         
         setInterval(() => {
