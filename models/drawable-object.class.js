@@ -32,7 +32,7 @@ class DrawableObject{
     };
 
     drawFrame(ctx) {
-        if (this instanceof Chicken || this instanceof Character) { //this instanceof Coin || this instanceof SmallChicken || 
+        if (this instanceof Chicken || this instanceof Character || this instanceof Endboss) {
           const xPos = this.x + this.offset.left;
           const yPos = this.y + this.offset.top;
           const width = this.width - this.offset.left - this.offset.right;

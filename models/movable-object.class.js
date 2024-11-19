@@ -7,7 +7,6 @@ class MovableObject extends DrawableObject {
     lastHit = 0;
 
     
-    
     otherDirection = false;
 
     applyGravity(){
