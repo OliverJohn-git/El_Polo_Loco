@@ -5,9 +5,9 @@ class World {
     ctx;
     keyboard;
     camera_x = 0;
-    statusBar = new StatusBar();
-    coinBar = new CoinBar();
-    bottleBar = new BottleBar();
+    statusBar = new StatusBar(20, 0, "health", 100);
+    coinBar = new StatusBar(20, 35, "coins", 0);
+    bottleBar = new StatusBar(20, 70, "bottles", 0);
     world;
     gameOver
 
