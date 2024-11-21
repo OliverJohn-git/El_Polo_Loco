@@ -6,8 +6,8 @@ class World {
     keyboard;
     camera_x = 0;
     statusBar = new StatusBar(20, 0, "health", 100);
-    coinBar = new StatusBar(20, 35, "coins", 0);
-    bottleBar = new StatusBar(20, 70, "bottles", 0);
+    coinBar = new StatusBar(20, 80, "coins", 0);
+    bottleBar = new StatusBar(20, 160, "bottles", 0);
     world;
     gameOver
 

@@ -1,6 +1,5 @@
 class StatusBar extends DrawableObject{
     
-
     IMAGES = {
         "health":[
       "img/7_statusbars/1_statusbar/2_statusbar_health/green/0.png",
@@ -30,6 +29,8 @@ class StatusBar extends DrawableObject{
     selectedBar;
     percentage;
     selectedImage = 6;
+    height = 350;
+    width = 100;
 
     constructor(x, y, selectedBar, percentage){
         super();
