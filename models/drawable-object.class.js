@@ -45,19 +45,5 @@ class DrawableObject{
           ctx.rect(xPos, yPos, width, height);
           ctx.stroke();
         }
-      }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 }
